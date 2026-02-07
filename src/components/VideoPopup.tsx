@@ -1,5 +1,6 @@
 import { Heart, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import vid_v from "../assets/vid_v1.mp4"
 
 interface VideoPopupProps {
   onClose: () => void;
@@ -8,12 +9,16 @@ interface VideoPopupProps {
 const VideoPopup = ({ onClose }: VideoPopupProps) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+
+      
       {/* Overlay */}
       <div 
         className="video-overlay absolute inset-0"
         onClick={onClose}
       />
       
+      
+
       {/* Content */}
       <div className="relative z-10 w-full max-w-3xl animate-scale-in">
         {/* Close button */}
@@ -44,25 +49,25 @@ const VideoPopup = ({ onClose }: VideoPopupProps) => {
         {/* Video container */}
         <div className="valentine-box p-2 md:p-4 rounded-2xl">
           <div className="relative w-full aspect-video bg-secondary rounded-xl overflow-hidden">
-            {/* Video placeholder - Replace src with your video */}
-            <video
-              className="w-full h-full object-cover"
-              controls
-              poster=""
-            >
-              {/* Add your video source here */}
-              <source src="" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {/* Video */}
+            
             
             {/* Placeholder overlay - remove when adding real video */}
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-secondary/80">
               <Heart className="text-primary fill-primary mb-4 animate-pulse-heart" size={64} />
               <p className="text-muted-foreground font-quicksand text-center px-4">
-                Your special video goes here 💝
+                <video
+              className="w-full h-full object-cover "
+              controls
+              poster=""
+            >
+              {/* Add your video source here */}
+              <source src={vid_v} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
               </p>
               <p className="text-muted-foreground/70 text-sm mt-2">
-                (Replace video source in code)
+                v_vid
               </p>
             </div>
           </div>
